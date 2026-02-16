@@ -43,6 +43,7 @@ coverage.xml
 
 # Project runtime artifacts
 workspace/
+data/
 .workspace/
 .data/
 tmp/
