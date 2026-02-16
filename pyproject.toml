@@ -1,0 +1,11 @@
+[project]
+name = "ds-star-implementation"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "langchain-core>=1.2.10",
+    "langchain-openai>=1.1.8",
+    "openai>=2.19.0",
+]

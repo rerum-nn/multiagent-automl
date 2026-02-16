@@ -1,0 +1,66 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tool caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+.cache/
+.pytype/
+.dmypy.json
+.pyright/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local environment / secrets
+.env
+.env.*
+*.local
+.python-version
+
+# Project runtime artifacts
+workspace/
+.workspace/
+.data/
+tmp/
+temp/
+
+# Logs / runtime dumps
+*.log
+logs/
+*.pid
+*.seed
+*.out
+*.err
+*.stackdump
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
