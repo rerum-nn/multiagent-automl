@@ -1,9 +1,9 @@
-from agents.agent import Agent
-from openai import OpenAI
+from .agent import Agent
+from langchain_core.language_models.chat_models import BaseChatModel
 
 class Planner(Agent):
-    def __init__(self, client: OpenAI, model_name: str):
-        super().__init__(client, model_name, 'planner')
+    def __init__(self, llm: BaseChatModel):
+        super().__init__(llm, 'planner')
 
     def init_plan(self, question: str, descriptions: dict[str, str]):
         filenames = ' '.join(descriptions.keys())

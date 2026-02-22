@@ -1,10 +1,10 @@
-from agents.agent import Agent
-from openai import OpenAI
-from agents.utils import find_code_and_delete_quotes
+from .agent import Agent
+from langchain_core.language_models.chat_models import BaseChatModel
+from .utils import find_code_and_delete_quotes
 
 class Debugger(Agent):
-    def __init__(self, client: OpenAI, model_name: str):
-        super().__init__(client, model_name, 'debugger')
+    def __init__(self, llm: BaseChatModel):
+        super().__init__(llm, 'debugger')
 
     def debug_analyzer(self, data_directory: str, code_filename: str, stderr: str):
         bug_summary = self.llm_call('bug_summary', bug=stderr, filename=code_filename, data_directory=data_directory)
@@ -42,3 +42,8 @@ class Debugger(Agent):
         code = find_code_and_delete_quotes(response)
         if code is None:
             raise ValueError("No code block found in the response")
+
+        with open(code_filename, 'w') as f:
+            f.write(code)
+
+        return code_filename

@@ -1,11 +1,11 @@
-from agents.agent import Agent
-from openai import OpenAI
+from .agent import Agent
+from langchain_core.language_models.chat_models import BaseChatModel
 import os
-from agents.utils import find_code_and_delete_quotes
+from .utils import find_code_and_delete_quotes
 
 class Coder(Agent):
-    def __init__(self, client: OpenAI, model_name: str):
-        super().__init__(client, model_name, 'coder')
+    def __init__(self, llm: BaseChatModel):
+        super().__init__(llm, 'coder')
 
     def init_code(self, workspace: str, files_descriptions: dict[str, str], plan: str):
         filenames = ' '.join(files_descriptions.keys())

@@ -1,11 +1,11 @@
 from .agent import Agent
-from agents.utils import find_code_and_delete_quotes
-from openai import OpenAI
+from .utils import find_code_and_delete_quotes
+from langchain_core.language_models.chat_models import BaseChatModel
 import os
 
 class Finalyzer(Agent):
-    def __init__(self, client: OpenAI, model_name: str):
-        super().__init__(client, model_name, 'finalyzer')
+    def __init__(self, llm: BaseChatModel):
+        super().__init__(llm, 'finalyzer')
 
     def finalize(
         self, 
